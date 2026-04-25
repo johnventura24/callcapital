@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title>Call Capital — Get Inside a $2M/Month Pay-Per-Call Operation</title>
+<meta name="description" content="Pay-per-call is one of the most lucrative businesses online. Most people don't know it exists. Call Capital opens the door — live sessions, real data, real deals.">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Archivo+Black&display=swap" rel="stylesheet">
+<script>(function(d,m,t){if(d[m])return;var q=d[m]={_queue:[],_clientId:t,_v:'7.0'};['track','identify','linkAuthenticated','enableTracking','disableTracking','requireConsent','enableDebug'].forEach(function(fn){q[fn]=function(){q._queue.push([fn,arguments,Date.now()])};});var s=document.createElement('script');s.src='https://track.dominatemedia.io/dm-tracking?client_id='+t;s.async=true;document.head.appendChild(s);})(window,'dmTrack','93a54446-9028-4cac-8ce2-294599964350');</script>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --navy: #02040a;
+  --navy-mid: #060d1a;
+  --navy-card: #0d1a2e;
+  --cyan: #22d3ee;
+  --blue: #3b82f6;
+  --text: #f0f4ff;
+  --muted: #94a3b8;
+  --border: rgba(255,255,255,0.08);
+  --border2: rgba(255,255,255,0.14);
+}
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  font-family: 'Inter', sans-serif;
+  background: #02040a;
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* TICKER */
+.ticker-wrap { background: rgba(34,211,238,0.06); border-bottom: 1px solid rgba(34,211,238,0.15); overflow: hidden; height: 36px; display: flex; align-items: center; }
+.ticker-track { display: flex; animation: ticker 30s linear infinite; white-space: nowrap; }
+.ticker-item { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--cyan); padding: 0 2.5rem; display: flex; align-items: center; gap: 8px; }
+.ticker-item::after { content: '·'; color: rgba(34,211,238,0.3); padding-left: 2.5rem; }
+@keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+/* NAV */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 5%; height: 64px;
+  background: rgba(2,4,10,0.96);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; font-family: 'Archivo Black', sans-serif; font-size: 1.1rem; color: #fff; flex-shrink: 0; }
+.nav-logo-mark { width: 32px; height: 32px; background: linear-gradient(135deg, var(--cyan), var(--blue)); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 900; color: #02040a; font-family: 'Archivo Black', sans-serif; }
+.nav-logo span { color: var(--cyan); }
+.nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
+.nav-links a { color: var(--muted); text-decoration: none; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; transition: color .2s; }
+.nav-links a:hover { color: #fff; }
+.nav-actions { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+.btn-ghost { background: transparent; border: 1px solid var(--border2); color: var(--text); padding: 8px 18px; border-radius: 8px; font-size: 0.82rem; font-weight: 600; cursor: pointer; transition: all .2s; text-decoration: none; white-space: nowrap; }
+.btn-ghost:hover { border-color: var(--cyan); color: var(--cyan); }
+.btn-primary { background: var(--cyan); color: #02040a; border: none; padding: 9px 20px; border-radius: 8px; font-size: 0.82rem; font-weight: 800; cursor: pointer; transition: all .2s; text-decoration: none; white-space: nowrap; }
+.btn-primary:hover { background: #67e8f9; transform: translateY(-1px); }
+.hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+.hamburger span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; }
+
+/* HERO */
+.hero {
+  min-height: 90vh; display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; padding: 80px 5%;
+  background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(34,211,238,0.08) 0%, transparent 70%);
+}
+.hero-eyebrow { display: inline-flex; align-items: center; gap: 8px; background: rgba(34,211,238,0.08); border: 1px solid rgba(34,211,238,0.2); padding: 6px 16px; border-radius: 100px; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--cyan); margin-bottom: 2rem; }
+.pulse-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--cyan); animation: pulse 2s infinite; }
+@keyframes pulse { 0%,100% { opacity:1; transform:scale(1); } 50% { opacity:0.5; transform:scale(0.85); } }
+h1 { font-family: 'Archivo Black', sans-serif; font-size: clamp(2.6rem, 6.5vw, 5.2rem); line-height: 1.05; letter-spacing: -0.02em; max-width: 860px; margin: 0 auto 1.25rem; color: #fff; }
+h1 .accent { color: var(--cyan); }
+.hero-sub { font-size: clamp(1rem, 1.8vw, 1.15rem); color: var(--muted); max-width: 520px; margin: 0 auto 2.5rem; line-height: 1.75; }
+.hero-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-bottom: 1.25rem; }
+.btn-xl-primary { background: var(--cyan); color: #02040a; border: none; padding: 16px 36px; border-radius: 10px; font-size: 1rem; font-weight: 800; cursor: pointer; transition: all .2s; text-decoration: none; letter-spacing: -0.01em; }
+.btn-xl-primary:hover { background: #67e8f9; transform: translateY(-2px); box-shadow: 0 12px 40px rgba(34,211,238,0.25); }
+.btn-xl-ghost { background: transparent; border: 1px solid var(--border2); color: var(--text); padding: 16px 32px; border-radius: 10px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: all .2s; text-decoration: none; }
+.btn-xl-ghost:hover { border-color: var(--cyan); color: var(--cyan); }
+.hero-trust { font-size: 0.78rem; color: var(--muted); display: flex; align-items: center; justify-content: center; gap: 1.5rem; flex-wrap: wrap; }
+
+/* PROOF BAR */
+.proof-bar { display: flex; align-items: center; justify-content: center; gap: 3rem; padding: 28px 5%; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: var(--navy-mid); flex-wrap: wrap; }
+.proof-stat { text-align: center; }
+.proof-stat-num { font-family: 'Archivo Black', sans-serif; font-size: 1.8rem; color: var(--cyan); letter-spacing: -0.03em; line-height: 1; }
+.proof-stat-label { font-size: 0.7rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; margin-top: 4px; }
+.proof-div { width: 1px; height: 40px; background: var(--border); }
+
+/* SECTIONS */
+.section { padding: 96px 5%; max-width: 1280px; margin: 0 auto; }
+.sec-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--cyan); margin-bottom: 1rem; }
+.sec-h2 { font-family: 'Archivo Black', sans-serif; font-size: clamp(1.9rem, 3.5vw, 3rem); line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 1rem; color: #fff; }
+.sec-sub { font-size: 1rem; color: var(--muted); line-height: 1.75; max-width: 540px; }
+
+/* PAIN */
+.pain-wrap { padding: 96px 5%; background: linear-gradient(180deg, var(--navy) 0%, #050b18 100%); }
+.pain-inner { max-width: 1280px; margin: 0 auto; }
+.pain-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; margin-top: 3rem; }
+.pain-card { background: #050b18; padding: 2rem 1.75rem; transition: background .3s; }
+.pain-card:hover { background: #080f20; }
+.pain-num { font-family: 'Archivo Black', sans-serif; font-size: 2.5rem; color: rgba(34,211,238,0.1); line-height: 1; margin-bottom: 1rem; letter-spacing: -0.04em; }
+.pain-card h4 { font-family: 'Archivo Black', sans-serif; font-size: 1rem; margin-bottom: 0.6rem; color: #fff; line-height: 1.3; }
+.pain-card p { font-size: 0.875rem; color: var(--muted); line-height: 1.7; }
+
+/* OPPORTUNITY */
+.opp-wrap { padding: 96px 5%; background: var(--navy-mid); }
+.opp-inner { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
+.opp-list { list-style: none; display: flex; flex-direction: column; gap: 1.25rem; margin-top: 2rem; }
+.opp-item { display: flex; gap: 1rem; align-items: flex-start; }
+.opp-icon { width: 36px; height: 36px; border-radius: 9px; background: rgba(34,211,238,0.1); border: 1px solid rgba(34,211,238,0.2); display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; }
+.opp-item h5 { font-size: 0.925rem; font-weight: 700; margin-bottom: 0.2rem; color: #fff; }
+.opp-item p { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
+.dash-card { background: var(--navy-card); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; box-shadow: 0 24px 80px rgba(0,0,0,0.5); }
+.dash-header { background: rgba(34,211,238,0.05); border-bottom: 1px solid var(--border); padding: 12px 16px; display: flex; align-items: center; gap: 8px; }
+.dash-dot { width: 9px; height: 9px; border-radius: 50%; }
+.dash-title { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-left: 4px; }
+.dash-live { margin-left: auto; background: rgba(34,211,238,0.1); border: 1px solid rgba(34,211,238,0.25); color: var(--cyan); font-size: 0.68rem; font-weight: 700; padding: 3px 10px; border-radius: 100px; }
+.dash-body { padding: 16px; }
+.dash-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--border); font-size: 0.8rem; }
+.dash-row:last-child { border-bottom: none; }
+.dash-row span:first-child { color: var(--muted); }
+.dash-row span:last-child { font-weight: 600; color: #fff; }
+.badge-g { background: rgba(34,197,94,0.12); color: #4ade80; padding: 2px 10px; border-radius: 100px; font-size: 0.7rem; font-weight: 700; }
+.badge-c { background: rgba(34,211,238,0.1); color: var(--cyan); padding: 2px 10px; border-radius: 100px; font-size: 0.7rem; font-weight: 700; }
+.dash-highlight { margin-top: 12px; background: rgba(34,211,238,0.06); border: 1px solid rgba(34,211,238,0.15); border-radius: 10px; padding: 12px 14px; font-size: 0.78rem; color: var(--cyan); font-weight: 600; }
+
+/* PROOF CARDS */
+.proof-wrap { padding: 96px 5%; background: var(--navy); }
+.proof-inner { max-width: 1280px; margin: 0 auto; }
+.proof-cards { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; margin-top: 3rem; }
+.proof-card { background: var(--navy-card); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; transition: border-color .3s, transform .3s; }
+.proof-card:hover { border-color: rgba(34,211,238,0.25); transform: translateY(-4px); }
+.proof-card-top { padding: 1.5rem; border-bottom: 1px solid var(--border); background: rgba(34,211,238,0.02); }
+.pc-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.5rem; }
+.pc-tag { display: inline-flex; align-items: center; gap: 6px; background: rgba(34,211,238,0.1); border: 1px solid rgba(34,211,238,0.25); color: var(--cyan); font-size: 0.68rem; font-weight: 700; padding: 4px 12px; border-radius: 100px; }
+.pc-stat { font-family: 'Archivo Black', sans-serif; font-size: 2.8rem; color: var(--cyan); letter-spacing: -0.04em; line-height: 1; margin: 0.75rem 0 0.25rem; }
+.pc-meta { font-size: 0.8rem; color: var(--muted); }
+.proof-card-body { padding: 1.5rem; }
+.proof-card-body h3 { font-family: 'Archivo Black', sans-serif; font-size: 1rem; margin-bottom: 0.6rem; line-height: 1.25; }
+.proof-card-body p { font-size: 0.85rem; color: var(--muted); line-height: 1.7; margin-bottom: 1rem; }
+.pbullets { list-style: none; display: flex; flex-direction: column; gap: 0.4rem; }
+.pbullets li { font-size: 0.8rem; color: var(--muted); display: flex; gap: 8px; }
+.pbullets li::before { content: '●'; color: var(--cyan); font-size: 0.45rem; margin-top: 6px; flex-shrink: 0; }
+
+/* MID CTA */
+.mid-cta { padding: 72px 5%; background: linear-gradient(135deg, rgba(34,211,238,0.06) 0%, rgba(59,130,246,0.06) 100%); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); text-align: center; }
+.mid-cta h2 { font-family: 'Archivo Black', sans-serif; font-size: clamp(1.6rem, 3vw, 2.4rem); letter-spacing: -0.02em; max-width: 680px; margin: 0 auto 0.75rem; line-height: 1.15; }
+.mid-cta p { font-size: 0.95rem; color: var(--muted); margin: 0 auto 2rem; max-width: 440px; }
+.mid-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+/* TESTIMONIALS */
+.test-wrap { padding: 96px 5%; background: #050b18; }
+.test-inner { max-width: 1280px; margin: 0 auto; }
+.test-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; margin-top: 3rem; }
+.test-card { background: var(--navy-card); border: 1px solid var(--border); border-radius: 14px; padding: 1.75rem; display: flex; flex-direction: column; transition: border-color .3s; }
+.test-card:hover { border-color: var(--border2); }
+.test-stars { color: #fbbf24; font-size: 0.85rem; margin-bottom: 1rem; letter-spacing: 2px; }
+.test-text { font-size: 0.9rem; color: #c4ccdc; line-height: 1.75; margin-bottom: 1.25rem; flex: 1; }
+.test-result { background: rgba(34,211,238,0.06); border: 1px solid rgba(34,211,238,0.15); border-radius: 8px; padding: 10px 14px; font-size: 0.8rem; color: var(--cyan); font-weight: 600; margin-bottom: 1.25rem; }
+.test-author { display: flex; align-items: center; gap: 10px; }
+.test-av { width: 36px; height: 36px; border-radius: 50%; background: rgba(34,211,238,0.1); border: 1px solid rgba(34,211,238,0.25); display: flex; align-items: center; justify-content: center; font-size: 0.72rem; font-weight: 700; color: var(--cyan); flex-shrink: 0; }
+.test-name { font-size: 0.875rem; font-weight: 600; }
+.test-role { font-size: 0.75rem; color: var(--muted); }
+
+/* HOW IT WORKS */
+.how-wrap { padding: 96px 5%; background: var(--navy-mid); }
+.how-inner { max-width: 1280px; margin: 0 auto; }
+.how-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; margin-top: 3rem; }
+.how-card { background: var(--navy-mid); padding: 2rem 1.5rem; }
+.how-num { font-family: 'Archivo Black', sans-serif; font-size: 3.5rem; color: rgba(34,211,238,0.08); line-height: 1; margin-bottom: 1rem; letter-spacing: -0.04em; }
+.how-card h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.5rem; color: #fff; line-height: 1.3; }
+.how-card p { font-size: 0.83rem; color: var(--muted); line-height: 1.65; }
+
+/* PRICING */
+.pricing-wrap { padding: 96px 5%; background: var(--navy); }
+.pricing-inner { max-width: 1280px; margin: 0 auto; }
+.pricing-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; margin-top: 3rem; align-items: start; }
+.price-card { background: var(--navy-card); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; display: flex; flex-direction: column; transition: border-color .3s; }
+.price-card.featured { border-color: rgba(34,211,238,0.35); background: #0d1e38; transform: scale(1.02); box-shadow: 0 0 60px rgba(34,211,238,0.08); }
+.price-badge { background: var(--cyan); color: #02040a; font-size: 0.68rem; font-weight: 800; letter-spacing: 0.08em; text-align: center; padding: 6px; text-transform: uppercase; }
+.price-top { padding: 1.75rem; border-bottom: 1px solid var(--border); }
+.price-tier { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.5rem; }
+.price-name { font-family: 'Archivo Black', sans-serif; font-size: 1.6rem; letter-spacing: -0.02em; margin-bottom: 0.75rem; }
+.price-amount { font-family: 'Archivo Black', sans-serif; font-size: 3rem; letter-spacing: -0.04em; line-height: 1; color: #fff; }
+.price-amount sub { font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 400; color: var(--muted); }
+.price-period { font-size: 0.78rem; color: var(--muted); margin: 0.4rem 0 1rem; }
+.price-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.65; }
+.price-feats { padding: 1.5rem 1.75rem; border-bottom: 1px solid var(--border); }
+.price-feats ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+.price-feats li { font-size: 0.85rem; color: #c4ccdc; display: flex; align-items: flex-start; gap: 10px; line-height: 1.4; }
+.ck { color: var(--cyan); flex-shrink: 0; font-size: 0.85rem; margin-top: 1px; }
+.xk { color: rgba(255,255,255,0.2); flex-shrink: 0; }
+.li-dim { color: var(--muted) !important; }
+.price-bot { padding: 1.5rem 1.75rem; }
+.cta-p { display: block; background: var(--cyan); color: #02040a; text-align: center; padding: 14px; border-radius: 9px; font-size: 0.9rem; font-weight: 800; text-decoration: none; transition: all .2s; }
+.cta-p:hover { background: #67e8f9; transform: translateY(-1px); }
+.cta-g { display: block; background: transparent; border: 1px solid var(--border2); color: var(--text); text-align: center; padding: 14px; border-radius: 9px; font-size: 0.9rem; font-weight: 600; text-decoration: none; transition: all .2s; }
+.cta-g:hover { border-color: var(--cyan); color: var(--cyan); }
+.price-note { font-size: 0.74rem; color: var(--muted); text-align: center; margin-top: 0.75rem; }
+
+/* RISK */
+.risk-wrap { padding: 72px 5%; background: var(--navy-mid); border-top: 1px solid var(--border); }
+.risk-inner { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: repeat(3,1fr); gap: 2.5rem; }
+.risk-item { text-align: center; }
+.risk-icon { font-size: 1.75rem; margin-bottom: 0.75rem; }
+.risk-title { font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; color: #fff; line-height: 1.3; }
+.risk-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.7; }
+
+/* FAQ */
+.faq-wrap { padding: 96px 5%; background: var(--navy); }
+.faq-inner { max-width: 780px; margin: 0 auto; }
+.faq-list { margin-top: 3rem; }
+.faq-row { display: flex; justify-content: space-between; align-items: center; padding: 18px 0; border-bottom: 1px solid var(--border); cursor: pointer; gap: 1rem; transition: color .2s; }
+.faq-row:hover { color: var(--cyan); }
+.faq-q { font-size: 0.95rem; font-weight: 600; line-height: 1.45; }
+.faq-icon { color: var(--muted); font-size: 1.4rem; font-weight: 300; flex-shrink: 0; transition: transform .3s, color .3s; }
+.faq-body { max-height: 0; overflow: hidden; transition: max-height .4s ease; }
+.faq-body p { font-size: 0.875rem; color: var(--muted); line-height: 1.75; padding: 16px 0 20px; }
+
+/* FINAL CTA */
+.final-wrap { padding: 112px 5%; text-align: center; background: radial-gradient(ellipse 80% 60% at 50% 100%, rgba(34,211,238,0.07) 0%, transparent 70%); border-top: 1px solid var(--border); }
+.final-wrap h2 { font-family: 'Archivo Black', sans-serif; font-size: clamp(2rem, 4vw, 3.5rem); letter-spacing: -0.02em; max-width: 720px; margin: 0 auto 1rem; line-height: 1.08; }
+.final-wrap p { font-size: 1rem; color: var(--muted); max-width: 480px; margin: 0 auto 2rem; line-height: 1.7; }
+.sub-row { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; max-width: 480px; margin: 0 auto 1.5rem; }
+.sub-input { flex: 1; min-width: 220px; background: var(--navy-card); border: 1px solid var(--border2); color: var(--text); padding: 13px 18px; border-radius: 9px; font-size: 0.9rem; outline: none; transition: border-color .2s; }
+.sub-input:focus { border-color: var(--cyan); }
+.sub-btn { background: var(--cyan); color: #02040a; border: none; padding: 13px 24px; border-radius: 9px; font-size: 0.9rem; font-weight: 800; cursor: pointer; transition: all .2s; white-space: nowrap; }
+.sub-btn:hover { background: #67e8f9; }
+.sub-success { display: none; color: var(--cyan); font-weight: 600; font-size: 0.9rem; margin-bottom: 1.5rem; }
+.sub-success.show { display: block; }
+.final-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 1rem; }
+.final-note { font-size: 0.78rem; color: var(--muted); margin-top: 1.25rem; }
+
+/* FOOTER */
+footer { padding: 60px 5% 36px; border-top: 1px solid var(--border); background: var(--navy-mid); }
+.footer-grid { max-width: 1280px; margin: 0 auto 3rem; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; }
+.footer-brand p { font-size: 0.85rem; color: var(--muted); line-height: 1.7; margin-top: 0.75rem; max-width: 260px; }
+footer h5 { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text); margin-bottom: 1rem; }
+footer ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+footer ul a { color: var(--muted); text-decoration: none; font-size: 0.85rem; transition: color .2s; }
+footer ul a:hover { color: var(--text); }
+.footer-bottom { max-width: 1280px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding-top: 2rem; border-top: 1px solid var(--border); flex-wrap: wrap; gap: 0.5rem; }
+.footer-bottom p { font-size: 0.78rem; color: var(--muted); }
+
+/* REVEAL */
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity .65s ease, transform .65s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* DRAWER */
+.drawer-overlay { position: fixed; inset: 0; z-index: 200; background: rgba(0,0,0,0.7); opacity: 0; pointer-events: none; transition: opacity .3s; }
+.drawer-overlay.open { opacity: 1; pointer-events: all; }
+.drawer { position: fixed; top: 0; left: 0; bottom: 0; z-index: 210; width: 280px; background: #060d1a; border-right: 1px solid var(--border); transform: translateX(-100%); transition: transform .35s cubic-bezier(.4,0,.2,1); display: flex; flex-direction: column; }
+.drawer.open { transform: translateX(0); }
+.drawer-head { display: flex; align-items: center; justify-content: space-between; padding: 18px 20px; border-bottom: 1px solid var(--border); }
+.drawer-title { font-family: 'Archivo Black', sans-serif; font-size: 1rem; }
+.drawer-close { background: none; border: none; color: var(--muted); font-size: 1.25rem; cursor: pointer; }
+.drawer-links { display: flex; flex-direction: column; padding: 16px 0; flex: 1; }
+.drawer-link { padding: 14px 20px; color: var(--muted); text-decoration: none; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; transition: color .2s, background .2s; }
+.drawer-link:hover { color: #fff; background: rgba(255,255,255,0.04); }
+.drawer-btns { padding: 16px 20px; display: flex; flex-direction: column; gap: 10px; border-top: 1px solid var(--border); }
+.drawer-btn-p { display: block; text-align: center; text-decoration: none; background: var(--cyan); color: #02040a; padding: 13px; border-radius: 9px; font-size: 0.9rem; font-weight: 800; }
+.drawer-btn-g { display: block; text-align: center; text-decoration: none; background: transparent; border: 1px solid var(--border2); color: var(--text); padding: 13px; border-radius: 9px; font-size: 0.9rem; font-weight: 600; }
+.drawer-foot { padding: 14px 20px; font-size: 0.72rem; color: var(--muted); text-align: center; }
+
+/* BOTTOM NAV */
+.bottom-nav { display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 90; background: rgba(6,13,26,0.97); border-top: 1px solid var(--border); height: 60px; align-items: stretch; }
+.bnav-item { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-decoration: none; color: var(--muted); font-size: 0.62rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; gap: 3px; transition: color .2s; }
+.bnav-item.active, .bnav-item:hover { color: var(--cyan); }
+.bnav-icon { font-size: 1rem; }
+.bnav-item.cta { background: rgba(34,211,238,0.1); color: var(--cyan); }
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .proof-cards { grid-template-columns: repeat(2,1fr); }
+  .how-grid { grid-template-columns: repeat(2,1fr); }
+  .opp-inner { gap: 3rem; }
+}
+@media (max-width: 768px) {
+  .nav-links, .nav-actions { display: none !important; }
+  .hamburger { display: flex !important; }
+  h1 { font-size: clamp(2.2rem, 9vw, 3rem); }
+  .hero { min-height: auto; padding: 60px 5%; }
+  .proof-bar { gap: 1.5rem; }
+  .proof-div { display: none; }
+  .pain-grid, .proof-cards, .test-grid, .pricing-grid, .risk-inner { grid-template-columns: 1fr; }
+  .how-grid { grid-template-columns: 1fr; }
+  .opp-inner { grid-template-columns: 1fr; gap: 3rem; }
+  .price-card.featured { transform: none; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .footer-brand { grid-column: 1/-1; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+  .bottom-nav { display: flex; }
+  body { padding-bottom: 60px; }
+}
+</style>
+</head>
+<body>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker-track">
+    <span class="ticker-item">Inner Circle — Limited spots remaining</span>
+    <span class="ticker-item">$2M+ monthly call volume</span>
+    <span class="ticker-item">10,000–25,000 calls routed daily</span>
+    <span class="ticker-item">30-day money-back guarantee</span>
+    <span class="ticker-item">Live sessions — real data, no theory</span>
+    <span class="ticker-item">Cancel anytime · No contracts</span>
+    <span class="ticker-item">Inner Circle — Limited spots remaining</span>
+    <span class="ticker-item">$2M+ monthly call volume</span>
+    <span class="ticker-item">10,000–25,000 calls routed daily</span>
+    <span class="ticker-item">30-day money-back guarantee</span>
+    <span class="ticker-item">Live sessions — real data, no theory</span>
+    <span class="ticker-item">Cancel anytime · No contracts</span>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-mark">C</div>
+    Call<span>Capital</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#proof">PROOF</a></li>
+    <li><a href="#how">HOW IT WORKS</a></li>
+    <li><a href="#pricing">ACCESS LEVELS</a></li>
+    <li><a href="#faq">FAQ</a></li>
+  </ul>
+  <div class="nav-actions">
+    <a href="https://buy.stripe.com/00weV7g1t6qt3Ma2Wp7N600" class="btn-ghost">Join Core</a>
+    <a href="https://buy.stripe.com/28EeV74iLcORaay8gJ7N601" class="btn-primary">Apply →</a>
+  </div>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- DRAWER -->
+<div class="drawer-overlay" id="drawer-overlay" onclick="toggleMenu()"></div>
+<div class="drawer" id="drawer">
+  <div class="drawer-head">
+    <div class="drawer-title">Call Capital</div>
+    <button class="drawer-close" onclick="toggleMenu()">✕</button>
+  </div>
+  <div class="drawer-links">
+    <a href="#proof" class="drawer-link" onclick="toggleMenu()">PROOF</a>
+    <a href="#how" class="drawer-link" onclick="toggleMenu()">HOW IT WORKS</a>
+    <a href="#pricing" class="drawer-link" onclick="toggleMenu()">ACCESS LEVELS</a>
+    <a href="#faq" class="drawer-link" onclick="toggleMenu()">FAQ</a>
+  </div>
+  <div class="drawer-btns">
+    <a href="https://buy.stripe.com/00weV7g1t6qt3Ma2Wp7N600" class="drawer-btn-p" onclick="toggleMenu()">Join Core — $149/mo</a>
+    <a href="https://buy.stripe.com/28EeV74iLcORaay8gJ7N601" class="drawer-btn-g" onclick="toggleMenu()">Apply for Inner Circle</a>
+  </div>
+  <div class="drawer-foot">No contracts · Cancel anytime · 30-day guarantee</div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-eyebrow">
+    <div class="pulse-dot"></div>
+    Real market access · Backed by live operating scale
+  </div>
+  <h1>The Pay-Per-Call Business Is <span class="accent">Already Running.</span> Get Inside It.</h1>
+  <p class="hero-sub">Pay-per-call is one of the most profitable businesses online. Most people have no idea how it actually works — and that gap is exactly what Call Capital closes.</p>
+  <div class="hero-actions">
+    <a href="https://buy.stripe.com/00weV7g1t6qt3Ma2Wp7N600" class="btn-xl-primary">Get Inside — $149/mo →</a>
+    <a href="https://buy.stripe.com/28EeV74iLcORaay8gJ7N601" class="btn-xl-ghost">Apply for Inner Circle</a>
+  </div>
+  <div class="hero-trust">
+    <span>🛡️ 30-day money-back guarantee</span>
+    <span>🔓 No contracts, cancel anytime</span>
+    <span>⚡ Inner Circle closing soon</span>
+  </div>
+</section>
+
+<!-- PROOF BAR -->
+<div class="proof-bar">
+  <div class="proof-stat"><div class="proof-stat-num">10K–25K</div><div class="proof-stat-label">Calls Routed Daily</div></div>
+  <div class="proof-div"></div>
+  <div class="proof-stat"><div class="proof-stat-num">$2M+</div><div class="proof-stat-label">Monthly Volume</div></div>
+  <div class="proof-div"></div>
+  <div class="proof-stat"><div class="proof-stat-num">4</div><div class="proof-stat-label">Live Verticals</div></div>
+  <div class="proof-div"></div>
+  <div class="proof-stat"><div class="proof-stat-num">Ringba</div><div class="proof-stat-label">+ HubSpot + n8n</div></div>
+
+</div>
+
+<!-- PAIN -->
+<section class="pain-wrap">
+  <div class="pain-inner">
+    <div class="sec-label">The problem nobody talks about</div>
+    <h2 class="sec-h2" style="max-width:640px">Most People in the Call Space<br>Are Flying Completely Blind</h2>
+    <p class="sec-sub">Here's what that gap is quietly costing you every single month:</p>
+    <div class="pain-grid">
+      <div class="pain-card">
+        <div class="pain-num">01</div>
+        <h4>You're paying retail while others pay wholesale</h4>
+        <p>If you don't understand how calls get generated, filtered, and priced upstream — you're negotiating blind. Buyers who know the machine pay less and convert more. Every day you don't, you're funding their advantage.</p>
+      </div>
+      <div class="pain-card">
+        <div class="pain-num">02</div>
+        <h4>You're learning from people who stopped operating</h4>
+        <p>Courses. Coaches. YouTube content. None of them have a live $2M/month marketplace open during the lesson. They're teaching from memory — you're executing in a market that's already moved on without them.</p>
+      </div>
+      <div class="pain-card">
+        <div class="pain-num">03</div>
+        <h4>The real operators are in rooms you don't know about</h4>
+        <p>The people genuinely building in pay-per-call aren't posting their playbooks publicly. They're on private deals in private rooms — and the gap between you and them compounds every month you're not inside one.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT IS IT -->
+<section class="opp-wrap">
+  <div class="opp-inner">
+    <div>
+      <div class="sec-label">What this actually is</div>
+      <h2 class="sec-h2">A $2M/Month Business —<br>Open for You to Learn Inside of</h2>
+      <p class="sec-sub" style="margin-bottom:0">This isn't a course. It's not a mastermind. Call Capital is a live, operating call marketplace that you get access to — sessions open, dashboards visible, real decisions happening in real time.</p>
+      <ul class="opp-list">
+        <li class="opp-item">
+          <div class="opp-icon">📊</div>
+          <div>
+            <h5>Watch live routing decisions — not slides</h5>
+            <p>Ringba open every session. See what's accepting, what's being cut, and why — this week, not two years ago.</p>
+          </div>
+        </li>
+        <li class="opp-item">
+          <div class="opp-icon">💰</div>
+          <div>
+            <h5>Learn from a real P&L — not hypotheticals</h5>
+            <p>Margin, volume, buyer behavior — all pulled from an active operation. The lessons mean something because the money is real.</p>
+          </div>
+        </li>
+        <li class="opp-item">
+          <div class="opp-icon">🤝</div>
+          <div>
+            <h5>Access actual deals — not just knowledge</h5>
+            <p>Supply deals, agent seats, broker structures posted monthly. Knowledge is step one. Participation is the goal.</p>
+          </div>
+        </li>
+        <li class="opp-item">
+          <div class="opp-icon">🚀</div>
+          <div>
+            <h5>Built for beginners and operators alike</h5>
+            <p>Never heard of Ringba? You will after session one. Already buying calls? You'll renegotiate your structure within 30 days.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div>
+      <div class="dash-card">
+        <div class="dash-header">
+          <div class="dash-dot" style="background:var(--cyan)"></div>
+          <div class="dash-dot" style="background:var(--blue);margin-left:4px"></div>
+          <span class="dash-title">Weekly Command View</span>
+          <span class="dash-live">● LIVE</span>
+        </div>
+        <div class="dash-body">
+          <div class="dash-row"><span>Daily call volume</span><span style="color:var(--cyan);font-weight:700">10,000–25,000</span></div>
+          <div class="dash-row"><span>Monthly revenue volume</span><span style="color:var(--cyan);font-weight:700">$2M+</span></div>
+          <div class="dash-row"><span>Operating stack</span><span>Ringba · HubSpot · n8n</span></div>
+          <div class="dash-row"><span>Active verticals</span><span class="badge-g">4 live</span></div>
+          <div class="dash-row"><span>Routing status</span><span class="badge-g">Active</span></div>
+          <div class="dash-row"><span>Buyer visibility</span><span class="badge-c">Live signal</span></div>
+          <div class="dash-row"><span>Next session</span><span style="font-weight:600;color:#fff">Biweekly</span></div>
+          <div class="dash-highlight">✓ All data pulled live — no slides, no theory, no fluff</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIVE PROOF CARDS -->
+<section class="proof-wrap" id="proof">
+  <div class="proof-inner">
+    <div class="sec-label">Live Proof</div>
+    <h2 class="sec-h2">This Isn't Built for Content.<br>It's Built for Revenue.</h2>
+    <p class="sec-sub">Three reasons what you learn here is different from anything else in the space.</p>
+    <div class="proof-cards">
+      <div class="proof-card reveal">
+        <div class="proof-card-top">
+          <div class="pc-label">Routing Board</div>
+          <div class="pc-tag"><span style="width:6px;height:6px;border-radius:50%;background:var(--cyan);display:inline-block"></span> Live Proof Frame</div>
+          <div class="pc-stat">10K–25K</div>
+          <div class="pc-meta">Daily routed call flow</div>
+        </div>
+        <div class="proof-card-body">
+          <h3>Daily Routed Call Flow</h3>
+          <p>The room is attached to an ecosystem already moving meaningful call volume every day — giving members real operating context instead of recycled theory.</p>
+          <ul class="pbullets">
+            <li>Live routing windows and buyer-side visibility</li>
+            <li>Supply quality interpreted through actual downstream economics</li>
+            <li>Decision-making anchored in current volume, not past stories</li>
+          </ul>
+        </div>
+      </div>
+      <div class="proof-card reveal">
+        <div class="proof-card-top">
+          <div class="pc-label">Marketplace Board</div>
+          <div class="pc-tag"><span style="width:6px;height:6px;border-radius:50%;background:var(--cyan);display:inline-block"></span> Live Proof Frame</div>
+          <div class="pc-stat">$2M+</div>
+          <div class="pc-meta">Monthly marketplace volume</div>
+        </div>
+        <div class="proof-card-body">
+          <h3>Monthly Marketplace Volume</h3>
+          <p>This is not a content brand pretending to understand the business. Real money is moving through the machine — which sharpens every signal members receive.</p>
+          <ul class="pbullets">
+            <li>Operator decisions tied to active commercial incentives</li>
+            <li>Sessions grounded in what margin and routing did this week</li>
+            <li>Better context for agents, buyers, brokers, and builders</li>
+          </ul>
+        </div>
+      </div>
+      <div class="proof-card reveal">
+        <div class="proof-card-top">
+          <div class="pc-label">Infrastructure Board</div>
+          <div class="pc-tag"><span style="width:6px;height:6px;border-radius:50%;background:var(--cyan);display:inline-block"></span> Live Proof Frame</div>
+          <div class="pc-stat">4 live</div>
+          <div class="pc-meta">Insurance and adjacent lanes in motion</div>
+        </div>
+        <div class="proof-card-body">
+          <h3>Insurance and Adjacent Lanes in Motion</h3>
+          <p>Learning from a stack with multiple active lanes makes the lessons more durable than a single-channel edge that disappears when conditions change.</p>
+          <ul class="pbullets">
+            <li>Ringba, CRM, workflow automation, and follow-up infrastructure</li>
+            <li>Qualification, routing, and monetization logic already operating</li>
+            <li>Participation paths that expand as your judgment compounds</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MID CTA -->
+<div class="mid-cta">
+  <div class="sec-label" style="text-align:center">The Opportunity</div>
+  <h2>You Found This for a Reason.<br><span style="color:var(--cyan)">Don't Leave Without Acting on It.</span></h2>
+  <p>Most people watch the video, think "interesting," and close the tab. The operators actually building in this space are the ones who got inside first.</p>
+  <div class="mid-btns">
+    <a href="https://buy.stripe.com/00weV7g1t6qt3Ma2Wp7N600" class="btn-xl-primary">Join Core — $149/mo →</a>
+    <a href="https://buy.stripe.com/28EeV74iLcORaay8gJ7N601" class="btn-xl-ghost">Apply for Inner Circle</a>
+  </div>
+  <p style="font-size:0.78rem;color:var(--muted);margin-top:1rem">30-day money-back · No contracts · Cancel anytime</p>
+</div>
+
+<!-- TESTIMONIALS -->
+<section class="test-wrap">
+  <div class="test-inner">
+    <div class="sec-label" style="text-align:center">Real Results</div>
+    <h2 class="sec-h2" style="text-align:center;margin:0 auto 0.5rem">They Were Exactly Where You Are Right Now</h2>
+    <p style="text-align:center;color:var(--muted);font-size:0.95rem;max-width:500px;margin:0 auto">Curious. Skeptical. Not sure if it was for them. Here's what changed.</p>
+    <div class="test-grid">
+      <div class="test-card reveal">
+        <div class="test-stars">★★★★★</div>
+        <p class="test-text">"I spent 3 years buying CPL leads thinking I understood the business. One session inside Call Capital showed me I was leaving money on the table on every single call. Within 30 days I'd renegotiated my entire buy structure — same budget, better calls, better margins."</p>
+        <div class="test-result">💰 Renegotiated lead costs within 30 days</div>
+        <div class="test-author">
+          <div class="test-av">JR</div>
+          <div><div class="test-name">James R.</div><div class="test-role">Insurance Agent, Texas</div></div>
+        </div>
+      </div>
+      <div class="test-card reveal">
+        <div class="test-stars">★★★★★</div>
+        <p class="test-text">"I thought brokering was for people with 5+ years in the space. I had 8 months. The co-build sessions in Inner Circle walked me through the actual setup live. Six weeks later I had supply routing through the marketplace and I was earning on the spread."</p>
+        <div class="test-result">🔗 Built a brokering operation in 6 weeks from scratch</div>
+        <div class="test-author">
+          <div class="test-av">MK</div>
+          <div><div class="test-name">Marcus K.</div><div class="test-role">Call Broker, Florida</div></div>
+        </div>
+      </div>
+      <div class="test-card reveal">
+        <div class="test-stars">★★★★★</div>
+        <p class="test-text">"Every course I bought before this was someone teaching me what worked for them two years ago. The sessions here are built from what happened this week. I learned more in 90 days than in 2 years of courses and $4,000 in program fees combined."</p>
+        <div class="test-result">📈 More progress in 90 days than 2 years of courses</div>
+        <div class="test-author">
+          <div class="test-av">SP</div>
+          <div><div class="test-name">Sarah P.</div><div class="test-role">Media Buyer, New York</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-wrap" id="how">
+  <div class="how-inner">
+    <div class="sec-label">How It Works</div>
+    <h2 class="sec-h2">From Watching From the Outside<br>to Operating From the Inside</h2>
+    <p class="sec-sub">Four steps. No prerequisites. Just show up.</p>
+    <div class="how-grid reveal">
+      <div class="how-card">
+        <div class="how-num">01</div>
+        <h4>Pick your level and get in</h4>
+        <p>New to pay-per-call? Core is built for you. Already operating? Inner Circle gives you proximity to deals and co-builds. Either way — the first move is getting inside.</p>
+      </div>
+      <div class="how-card">
+        <div class="how-num">02</div>
+        <h4>Sit in on live sessions</h4>
+        <p>Biweekly. Ringba open, P&L visible, real routing decisions happening. You're not watching a replay of how things used to work — you're watching it happen right now.</p>
+      </div>
+      <div class="how-card">
+        <div class="how-num">03</div>
+        <h4>Access the deal board</h4>
+        <p>Supply deals, agent seats, broker structures, JV opportunities. Posted to active members first. Most members see their first real opportunity within 60 days of joining.</p>
+      </div>
+      <div class="how-card">
+        <div class="how-num">04</div>
+        <h4>Become a revenue participant</h4>
+        <p>Route your own calls. Close policies as an agent. Earn on the spread as a broker. Co-build a campaign. The goal was never education — it was a seat at the table.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing-wrap" id="pricing">
+  <div class="pricing-inner">
+    <div style="text-align:center;max-width:620px;margin:0 auto">
+      <div class="sec-label" style="text-align:center">Access Levels</div>
+      <h2 class="sec-h2" style="text-align:center;margin:0 auto 0.75rem">Three Levels. One Goal.</h2>
+      <p style="color:var(--muted);font-size:1rem;line-height:1.7">Free keeps you close to the conversation. Core puts you inside the live operation. Inner Circle is the room where real decisions get made — and it closes when it fills.</p>
+    </div>
+    <div class="pricing-grid">
+
+      <div class="price-card">
+        <div class="price-top">
+          <div class="price-tier">Outer Layer</div>
+          <div class="price-name">Free</div>
+          <div class="price-amount">$0</div>
+          <div class="price-period">Always free</div>
+          <p class="price-desc">Good for getting context. But free keeps you watching. Don't stay here longer than you need to.</p>
+        </div>
+        <div class="price-feats">
+          <ul>
+            <li><span class="ck">✓</span> Weekly YouTube breakdowns with real data</li>
+            <li><span class="ck">✓</span> Free newsletter — the Call Capital brief</li>
+            <li><span class="ck">✓</span> Community access (Skool)</li>
+            <li><span class="ck">✓</span> Partial playbook & Deal Board summary</li>
+            <li><span class="xk">—</span> <span class="li-dim">Live sessions</span></li>
+            <li><span class="xk">—</span> <span class="li-dim">Full playbook vault</span></li>
+            <li><span class="xk">—</span> <span class="li-dim">Broker platform access</span></li>
+          </ul>
+        </div>
+        <div class="price-bot">
+          <a href="https://subscribe-forms.beehiiv.com/e28725af-11f8-4598-ba7b-040de82a71a8" class="cta-g">Follow for Free</a>
+        </div>
+      </div>
+
+      <div class="price-card featured">
+        <div class="price-badge">Best Place to Start</div>
+        <div class="price-top">
+          <div class="price-tier">Primary Path</div>
+          <div class="price-name">Core</div>
+          <div class="price-amount">$149<sub>/mo</sub></div>
+          <div class="price-period">Cancel anytime · 30-day guarantee</div>
+          <p class="price-desc">$149/month for access to a $2M/month operation. For beginners and operators alike. The ROI math isn't complicated.</p>
+        </div>
+        <div class="price-feats">
+          <ul>
+            <li><span class="ck">✓</span> Full playbook vault — SOPs, templates, routing logic</li>
+            <li><span class="ck">✓</span> Monthly Deal Board — real ecosystem opportunities</li>
+            <li><span class="ck">✓</span> Private operator community (Skool)</li>
+            <li><span class="ck">✓</span> Biweekly live sessions — real data, real P&L</li>
+            <li><span class="ck">✓</span> Session recordings + searchable archive</li>
+            <li><span class="ck">✓</span> Broker platform access</li>
+            <li><span class="ck">✓</span> 30-day money-back on your first month</li>
+          </ul>
+        </div>
+        <div class="price-bot">
+          <a href="https://buy.stripe.com/00weV7g1t6qt3Ma2Wp7N600" class="cta-p">Join Core — $149/mo →</a>
+          <div class="price-note">🛡️ 30-day money-back guarantee — zero risk to try</div>
+        </div>
+      </div>
+
+      <div class="price-card">
+        <div class="price-top">
+          <div class="price-tier">Higher-Touch Room</div>
+          <div class="price-name">Inner Circle</div>
+          <div class="price-amount">$497<sub>/mo</sub></div>
+          <div class="price-period">Capped at 20 members · spots are limited</div>
+          <p class="price-desc">For the operator who wants proximity — not just access. Your campaigns reviewed live. Direct access to the people running the machine.</p>
+        </div>
+        <div class="price-feats">
+          <ul>
+            <li><span class="ck">✓</span> Everything in Core</li>
+            <li><span class="ck">✓</span> Biweekly 60-min deep dives + live Q&A</li>
+            <li><span class="ck">✓</span> Co-build sessions — your campaigns reviewed live</li>
+            <li><span class="ck">✓</span> Private group access</li>
+            <li><span class="ck">✓</span> Broker platform priority + deal access</li>
+            <li><span class="ck">✓</span> Agent seat — close calls, earn commissions</li>
+            <li><span class="ck">✓</span> Direct Slack access between sessions</li>
+          </ul>
+        </div>
+        <div class="price-bot">
+          <a href="https://buy.stripe.com/28EeV74iLcORaay8gJ7N601" class="cta-g">Apply for Inner Circle →</a>
+          <div class="price-note">⚠️ Capped at 20 — closes when full, no exceptions</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- RISK STRIP -->
+<section class="risk-wrap">
+  <div class="risk-inner reveal">
+    <div class="risk-item">
+      <div class="risk-icon">🛡️</div>
+      <div class="risk-title">Try it 30 days. Doesn't deliver? Full refund.</div>
+      <div class="risk-desc">Show up to the sessions, engage with the playbook. If you genuinely don't see the value — email us and we refund you the same day. No forms. No runaround. We've never refunded someone who actually showed up.</div>
+    </div>
+    <div class="risk-item">
+      <div class="risk-icon">🔓</div>
+      <div class="risk-title">Month-to-month. No contracts. Cancel in 30 seconds.</div>
+      <div class="risk-desc">No annual commitment, no cancellation fees, no hoops. You stay because it's worth it — not because you signed something. Every member is here by choice, every single month.</div>
+    </div>
+    <div class="risk-item">
+      <div class="risk-icon">⚡</div>
+      <div class="risk-title">The real risk is waiting another month.</div>
+      <div class="risk-desc">Every 30 days you're not inside, you're paying full price for calls insiders buy cheaper, building on strategies that are 18 months stale. The operators who joined last month are already compounding. The risk isn't joining — it's waiting.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-wrap" id="faq">
+  <div class="faq-inner">
+    <div class="sec-label" style="text-align:center">FAQ</div>
+    <h2 class="sec-h2" style="text-align:center">Every Objection. Answered Honestly.</h2>
+    <div class="faq-list">
+
+      <div class="faq-row" onclick="toggleFaq(this)">
+        <span class="faq-q">I've never heard of pay-per-call. Is this for complete beginners?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-body"><p>Yes — and that's actually an advantage. You haven't spent years building the wrong habits. Core takes someone from zero context to genuine operational understanding. One session and you'll understand how money moves in this industry better than most people who've been in it for years. The people who get the most out of this are the ones who show up and actually implement what they learn.</p></div>
+
+      <div class="faq-row" onclick="toggleFaq(this)">
+        <span class="faq-q">I already buy calls. Why would I pay $149/month for this?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-body"><p>Because right now you're buying without full context — and that gap is costing you more than $149/month in overpayments and missed margin. Do you know what margin the seller makes on every call you buy? Do you know which buyers upstream are accepting similar supply? If the answer is no — you're leaving money on the table every month. One month of live sessions will show you exactly where. James renegotiated his entire buy structure in 30 days. That's not the exception — it's the pattern.</p></div>
+
+      <div class="faq-row" onclick="toggleFaq(this)">
+        <span class="faq-q">What's the difference between Core and Inner Circle?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-body"><p>Core is the intelligence layer — live sessions, full playbook, Deal Board, community, broker platform access. Everything you need to understand how the business operates. Inner Circle is the proximity layer — co-build sessions where your actual campaigns get reviewed live, direct Slack between sessions, agent seats to earn commissions, and priority deal flow. Core is always open. Inner Circle is capped at 20 and closes when it fills.</p></div>
+
+      <div class="faq-row" onclick="toggleFaq(this)">
+        <span class="faq-q">How is this different from a course or a mastermind?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-body"><p>A course teaches you what worked for someone else in a market that may no longer exist. A mastermind charges you $10K+ to be in a room with other people figuring it out together. Call Capital is attached to a live, operating call marketplace doing $2M+/month right now. Every session is pulled from this week — actual routing decisions, margin data, buyer behavior from the last seven days. There is no other room in this industry where you get that level of access for $149/month. There isn't even a close second.</p></div>
+
+      <div class="faq-row" onclick="toggleFaq(this)">
+        <span class="faq-q">What if I join and it's not for me?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-body"><p>Show up to the sessions, engage with the material, and if you genuinely don't find value in your first 30 days — email us and we refund you the same day. No forms. No "we'll review it." No back-and-forth. We've refunded people who never showed up. We've never refunded someone who did.</p></div>
+
+      <div class="faq-row" onclick="toggleFaq(this)">
+        <span class="faq-q">Can I cancel anytime?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-body"><p>Yes. Always. No contracts, no cancellation fees, no phone calls required. Cancel from your dashboard in 30 seconds. Access stays active through the end of your billing period. Every member here is choosing to stay every single month.</p></div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-wrap">
+  <div class="sec-label" style="text-align:center">Make the call</div>
+  <h2>The Operators Who Joined Last Month<br><span style="color:var(--cyan)">Are Already a Month Ahead of You.</span></h2>
+  <p>Every session they've sat in, every deal they've seen, every routing decision they've watched is compounding. You can close the gap today — or let it grow for another month.</p>
+  <form class="sub-row" id="subscribe-form" onsubmit="handleSubscribe(event)">
+    <input type="email" class="sub-input" placeholder="Enter your email — start with the free newsletter" required id="subscribe-email">
+    <button type="submit" class="sub-btn">Get In →</button>
+  </form>
+  <div class="sub-success" id="subscribe-success">✓ You're in — check your inbox.</div>
+  <div class="final-btns">
+    <a href="https://buy.stripe.com/00weV7g1t6qt3Ma2Wp7N600" class="btn-xl-primary">Join Core — $149/mo →</a>
+    <a href="https://buy.stripe.com/28EeV74iLcORaay8gJ7N601" class="btn-xl-ghost">Apply for Inner Circle</a>
+  </div>
+  <div class="final-note">🛡️ 30-day money-back guarantee · 🔓 No contracts · ⚡ Inner Circle closing soon</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="#" class="nav-logo" style="font-size:1rem">
+        <div class="nav-logo-mark" style="width:28px;height:28px;font-size:11px">C</div>
+        Call<span>Capital</span>
+      </a>
+      <p>The only operator-led community built on a live $2M+/month call marketplace. Not theory. Not yesterday's playbook. The real machine — open to the people serious enough to get inside.</p>
+    </div>
+    <div>
+      <h5>Access</h5>
+      <ul>
+        <li><a href="https://subscribe-forms.beehiiv.com/e28725af-11f8-4598-ba7b-040de82a71a8">Free Newsletter</a></li>
+        <li><a href="https://buy.stripe.com/00weV7g1t6qt3Ma2Wp7N600">Core — $149/mo</a></li>
+        <li><a href="https://buy.stripe.com/28EeV74iLcORaay8gJ7N601">Inner Circle — $497/mo</a></li>
+        <li><a href="#pricing">Compare Plans</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Resources</h5>
+      <ul>
+        <li><a href="#">Playbook Vault</a></li>
+        <li><a href="#">Deal Board</a></li>
+        <li><a href="#">Live Sessions</a></li>
+        <li><a href="#">YouTube</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Legal</h5>
+      <ul>
+        <li><a href="https://callcapital.io/privacy">Privacy Policy</a></li>
+        <li><a href="https://callcapital.io/terms">Terms of Service</a></li>
+        <li><a href="https://callcapital.io/refund">Refund Policy</a></li>
+        <li><a href="https://callcapital.io/contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Call Capital. All rights reserved.</p>
+    <p>10,000–25,000 calls routed daily · $2M+ monthly marketplace volume</p>
+  </div>
+</footer>
+
+<!-- MOBILE BOTTOM NAV -->
+<div class="bottom-nav">
+  <a href="#proof" class="bnav-item"><span class="bnav-icon">📊</span>Proof</a>
+  <a href="#pricing" class="bnav-item"><span class="bnav-icon">💳</span>Plans</a>
+  <a href="https://buy.stripe.com/00weV7g1t6qt3Ma2Wp7N600" class="bnav-item cta"><span class="bnav-icon">⚡</span>Join Core</a>
+  <a href="#faq" class="bnav-item"><span class="bnav-icon">❓</span>FAQ</a>
+  <a href="#" class="bnav-item" onclick="toggleMenu(); return false;"><span class="bnav-icon">☰</span>Menu</a>
+</div>
+
+<script>
+const obs = new IntersectionObserver(e => e.forEach(x => { if(x.isIntersecting) x.target.classList.add('visible'); }), { threshold: 0.06 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+function toggleMenu() {
+  const d = document.getElementById('drawer');
+  const o = document.getElementById('drawer-overlay');
+  d.classList.toggle('open');
+  o.classList.toggle('open');
+  document.body.style.overflow = d.classList.contains('open') ? 'hidden' : '';
+}
+
+function toggleFaq(row) {
+  const body = row.nextElementSibling;
+  const icon = row.querySelector('.faq-icon');
+  const isOpen = body.style.maxHeight && body.style.maxHeight !== '0px';
+  document.querySelectorAll('.faq-body').forEach(b => b.style.maxHeight = '0');
+  document.querySelectorAll('.faq-icon').forEach(i => { i.style.transform='rotate(0)'; i.style.color='var(--muted)'; });
+  if (!isOpen) {
+    body.style.maxHeight = body.scrollHeight + 'px';
+    icon.style.transform = 'rotate(45deg)';
+    icon.style.color = 'var(--cyan)';
+  }
+}
+
+async function handleSubscribe(e) {
+  e.preventDefault();
+  const email = document.getElementById('subscribe-email').value;
+  const form = document.getElementById('subscribe-form');
+  const success = document.getElementById('subscribe-success');
+  const btn = form.querySelector('.sub-btn');
+  btn.textContent = 'Subscribing...';
+  btn.disabled = true;
+  try {
+    await fetch('https://app.beehiiv.com/api/v1/publications/e28725af-11f8-4598-ba7b-040de82a71a8/subscriptions', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, reactivate_existing: true, send_welcome_email: true })
+    });
+  } catch(err) {}
+  form.style.display = 'none';
+  success.classList.add('show');
+}
+
+const _secs = ['proof','how','pricing','faq'];
+window.addEventListener('scroll', () => {
+  const y = window.scrollY + 120;
+  _secs.forEach(id => {
+    const el = document.getElementById(id);
+    if (el && y >= el.offsetTop && y < el.offsetTop + el.offsetHeight) {
+      document.querySelectorAll('.bnav-item').forEach(n => n.classList.remove('active'));
+      const ni = document.querySelector(`.bnav-item[href="#${id}"]`);
+      if (ni) ni.classList.add('active');
+    }
+  });
+}, { passive: true });
+</script>
+</body>
+</html>
